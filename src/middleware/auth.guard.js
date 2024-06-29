@@ -1,11 +1,17 @@
-const authGuard = (role = ['user']) => {
-	if (!Array.isArray(role)) throw new Error('role must be an array');
+import Error from "../config/error/error.js";
+
+const authGuard = (role = []) => {
+	if (!Array.isArray(role)) throw new Error('Role must be an array', 500);
+	role.unshift('user');
+
 	return (req, res, next) => {
-		if (req.user && role.includes(req.user.role)) {
-			next();
-			return;
+		if (!req.user) throw new Error('Требуется авторизация', 401);
+
+		if (role.includes(req.user.role)) {
+			return next();
 		}
-		res.sendStatus(403);
+
+		throw new Error('Не достаточно прав', 403);
 	}
 }
 

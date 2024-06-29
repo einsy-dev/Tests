@@ -5,6 +5,7 @@ import sequelize from './src/config/db/index.js';
 import { BookRouter } from './src/entities/book/index.js';
 import { UserRouter } from './src/entities/user/index.js';
 import jwtDecode from './src/middleware/jwt.decode.js';
+import errorHandler from './src/middleware/error.handler.js';
 
 let app = express();
 
@@ -17,6 +18,8 @@ app.use(jwtDecode);
 
 app.use('/api/books', BookRouter);
 app.use('/api/users', UserRouter)
+
+app.use(errorHandler);
 
 try {
 	await sequelize.sync({ alter: true, logging: false });

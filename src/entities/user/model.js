@@ -9,7 +9,8 @@ const User = sequelize.define('User', {
 	},
 	username: {
 		type: STRING,
-		allowNull: false
+		allowNull: false,
+		unique: true
 	},
 	password: {
 		type: STRING,
@@ -17,7 +18,8 @@ const User = sequelize.define('User', {
 	},
 	email: {
 		type: STRING,
-		allowNull: false
+		allowNull: false,
+		unique: true
 	},
 	role: {
 		type: STRING,
