@@ -1,4 +1,4 @@
-import Error from "../config/error/error.js";
+import Error from '../config/error/error.js';
 
 const authGuard = (role = []) => {
 	if (!Array.isArray(role)) throw new Error('Role must be an array', 500);
@@ -12,7 +12,7 @@ const authGuard = (role = []) => {
 		}
 
 		throw new Error('Не достаточно прав', 403);
-	}
-}
+	};
+};
 
-export default authGuard
+export default authGuard;

@@ -17,7 +17,7 @@ app.use(cors());
 app.use(jwtDecode);
 
 app.use('/api/books', BookRouter);
-app.use('/api/users', UserRouter)
+app.use('/api/users', UserRouter);
 
 app.use(errorHandler);
 

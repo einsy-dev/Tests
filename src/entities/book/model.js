@@ -1,5 +1,5 @@
-import sequelize from "../../config/db/index.js";
-import { UUID, STRING, DATE, NOW, UUIDV4 } from "sequelize";
+import sequelize from '../../config/db/index.js';
+import { UUID, STRING, DATE, NOW, UUIDV4 } from 'sequelize';
 
 const Book = sequelize.define('Book', {
 	id: {

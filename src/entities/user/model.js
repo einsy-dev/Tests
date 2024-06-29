@@ -1,5 +1,5 @@
-import sequelize from "../../config/db/index.js";
-import { UUID, UUIDV4, STRING } from "sequelize";
+import sequelize from '../../config/db/index.js';
+import { UUID, UUIDV4, STRING } from 'sequelize';
 
 const User = sequelize.define('User', {
 	id: {

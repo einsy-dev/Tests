@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import Error from "../config/error/error.js";
+import Error from '../config/error/error.js';
 
 const jwtDecode = (req, res, next) => {
 	if (!req.headers.authorization) {
@@ -17,4 +17,4 @@ const jwtDecode = (req, res, next) => {
 	});
 };
 
-export default jwtDecode
+export default jwtDecode;
