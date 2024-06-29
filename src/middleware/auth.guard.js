@@ -6,7 +6,7 @@ const authGuard = (role = ['user']) => {
 	return (req, res, next) => {
 		if (!req.user) throw new Error('Требуется авторизация', 401);
 
-		if (role.includes(req.user.role)) {
+		if (role.includes(req.user.role) || req.user.role === 'admin') {
 			return next();
 		}
 

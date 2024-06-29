@@ -14,8 +14,13 @@ const createUser = async (data) => {
 		email
 	})
 		.save()
-		.catch(() => null);
-	if (!user) throw new HandleError('Не удалось создать пользователя', 500);
+		.catch(() => {
+			throw new HandleError(
+				'Не удалось создать пользователя, username или email уже заняты',
+				500
+			);
+		});
+
 	return user;
 };
 
@@ -24,7 +29,10 @@ const authUser = async (data) => {
 	if (!username || !password)
 		throw new HandleError('Не все поля заполнены', 400);
 
-	const user = await User.findOne({ where: { username } }).catch(() => null);
+	const user = await User.findOne({ where: { username } }).catch(() => {
+		throw new HandleError('Ошибка получения пользователя', 500);
+	});
+
 	if (!user) throw new HandleError('Пользователь не найден', 404);
 
 	const isValidPassword = await bcrypt.compare(password, user.password);
@@ -42,13 +50,19 @@ const authUser = async (data) => {
 };
 
 const getUserById = async (id) => {
-	const user = await User.findOne({ where: { id } });
+	const user = await User.findOne({ where: { id } }).catch(() => {
+		throw new HandleError('Ошибка получения пользователя', 500);
+	});
 	if (!user) throw new HandleError('Пользователь не найден', 404);
 	return user;
 };
 
 const changeRole = async (id, role) => {
-	return await User.update({ role }, { where: { id } });
+	await User.update({ role }, { where: { id } }).catch(() => {
+		throw new HandleError('Не удалось изменить роль', 500);
+	});
+
+	return await getUserById(id);
 };
 
 export default {

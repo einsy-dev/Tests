@@ -29,8 +29,9 @@ const getBooks = async () => {
 const getBookById = async (id) => {
 	if (!id) throw new HandleError('Не выбрано книги', 400);
 	const book = await Book.findOne({ where: { id } }).catch(() => {
-		throw new HandleError('Книга не найдена', 404);
+		throw new HandleError('Ошибка получения книги', 500);
 	});
+	if (!book) throw new HandleError('Книга не найдена', 404);
 	return book;
 };
 
