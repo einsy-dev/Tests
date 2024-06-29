@@ -4,33 +4,33 @@ import authGuard from '#middleware/auth.guard.js';
 
 const router = Router();
 
-router.post('/', authGuard(['admin']), async (req, res) => {
+router.post('/', authGuard(['admin']), async (req, res, next) => {
 	const body = req.body;
-	const data = await BookService.createBook(body);
+	const data = await BookService.createBook(body).catch((err) => next(err));
 	res.send(data);
 });
 
-router.get('/', async (req, res) => {
-	const data = await BookService.getBooks();
+router.get('/', async (req, res, next) => {
+	const data = await BookService.getBooks().catch((err) => next(err));
 	res.send(data);
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res, next) => {
 	const id = req.params.id;
-	const data = await BookService.getBookById(id);
+	const data = await BookService.getBookById(id).catch((err) => next(err));
 	res.send(data);
 });
 
-router.put('/:id', authGuard(['admin']), async (req, res) => {
+router.put('/:id', authGuard(['admin']), async (req, res, next) => {
 	const id = req.params.id;
 	const body = req.body;
-	const data = await BookService.updateBook(id, body);
+	const data = await BookService.updateBook(id, body).catch((err) => next(err));
 	res.send(data);
 });
 
-router.delete('/:id', authGuard(['admin']), async (req, res) => {
+router.delete('/:id', authGuard(['admin']), async (req, res, next) => {
 	const id = req.params.id;
-	const data = await BookService.deleteBook(id);
+	const data = await BookService.deleteBook(id).catch((err) => next(err));
 	res.send(data);
 });
 

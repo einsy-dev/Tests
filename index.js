@@ -22,7 +22,7 @@ app.use('/api/users', UserRouter);
 app.use(errorHandler);
 
 try {
-	await sequelize.sync({ alter: true, logging: false });
+	await sequelize.sync({ alter: true, logging: false, force: true });
 	await app.listen(3000, () => console.log('Listening on port 3000'));
 } catch (err) {
 	console.log(err['original']);

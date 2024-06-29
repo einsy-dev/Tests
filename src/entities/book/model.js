@@ -17,7 +17,6 @@ const Book = sequelize.define('Book', {
 	},
 	publicationDate: {
 		type: DATE,
-		defaultValue: NOW
 	},
 	genres: {
 		type: STRING
