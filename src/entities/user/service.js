@@ -5,21 +5,25 @@ import bcrypt from 'bcrypt';
 
 const createUser = async (data) => {
 	const { username, password, email } = data;
-	if (!username || !password || !email) throw new HandleError('Не все поля заполнены', 400);
+	if (!username || !password || !email)
+		throw new HandleError('Не все поля заполнены', 400);
 	const hashedPassword = await bcrypt.hash(password, 10);
 	const user = await User.build({
 		username,
 		password: hashedPassword,
 		email
-	}).save().catch(() => null);
+	})
+		.save()
+		.catch(() => null);
 	if (!user) throw new HandleError('Не удалось создать пользователя', 500);
 	return user;
 };
 
 const authUser = async (data) => {
 	const { username, password } = data;
-	if (!username || !password) throw new HandleError('Не все поля заполнены', 400);
-	
+	if (!username || !password)
+		throw new HandleError('Не все поля заполнены', 400);
+
 	const user = await User.findOne({ where: { username } }).catch(() => null);
 	if (!user) throw new HandleError('Пользователь не найден', 404);
 
