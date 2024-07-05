@@ -1,7 +1,7 @@
 import node from 'node:http'
 import pg from 'pg';
 import dbConfig from './src/db/index.js';
-import { checkTableExists, createTableIfNotExists, addDataToTable } from './src/db/query.js';
+import { createTableIfNotExists, addDataToTable } from './src/db/query.js';
 
 const { Client } = pg;
 

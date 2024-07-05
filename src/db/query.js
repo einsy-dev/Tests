@@ -1,8 +1,3 @@
-const checkTableExists = (data) => `SELECT EXISTS (
-SELECT FROM pg_tables 
-WHERE schemaname = 'public' 
-AND tablename = '${data}');`;
-
 const createTableIfNotExists = (data) => `CREATE TABLE ${data} (
 				id SERIAL PRIMARY KEY,
 				name VARCHAR(255) NOT NULL,
@@ -41,4 +36,4 @@ const addDataToTable = (tablename, data) => {
 
 
 
-export { checkTableExists, createTableIfNotExists, addDataToTable };
+export { createTableIfNotExists, addDataToTable };
