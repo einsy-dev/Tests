@@ -13,7 +13,9 @@ const server = createServer(async (req, res) => {
 	const table = req.url.split('/')[1];
 
 	if (!table) {
-		res.status(400).send('Table name is required');
+		res.statusCode = 400
+		res.setHeader('Content-Type', 'application/json')
+		res.end(JSON.stringify({ loc: 'table', error: 'Table name is required' }));
 		return;
 	}
 	try {
