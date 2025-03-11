@@ -1,0 +1,33 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "Repo for tests",
+  "main": "index.js",
+  "scripts": {
+    "empty": "node lcs.js",
+    "1": "node lcs.js ABCDEFZ WBCDXYZ",
+    "2": "node lcs.js 132 12332 12312",
+    "3": "node lcs.js ABCDEFGH ABCDEFG ABCEDF ABCED",
+    "4": "node lcs.js ABCDEFGH ABCDEFG ABCDEF ABCDE",
+    "5": "node lcs.js ABCDEFGH ABCDEFG ABCDEF ABCDE EDCBA",
+    "6": "node lcs.js ABCDEFGH ABCDEFG ABCDEF ABCDE EDCBCA",
+    "7": "node lcs.js ABCDEFGH ABCDEFG AxBCDEF ABCDxE EDCBCAABCD",
+    "8": "node lcs.js ABCDEFGH 1234",
+    "9": "node lcs.js ABCDEFGH",
+    "10": "node lcs.js ABCQEFDEFGHIJ BCXEFGYZBCDEWEFGHU"
+
+ 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/einsy-dev/Tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/einsy-dev/Tests/issues"
+  },
+  "homepage": "https://github.com/einsy-dev/Tests#readme"
+}

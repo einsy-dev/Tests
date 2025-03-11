@@ -1,0 +1,1 @@
+r=c='',i=y=0,a=process.argv.slice(2);while(a[0]&&y<a[0].length){y++;c=a[0].slice(i,y);a.every(e=>e.includes(c))?r=c:i++};console.log(r)
