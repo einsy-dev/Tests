@@ -1,0 +1,27 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "Repo for tests",
+  "main": "index.js",
+  "dependencies": {
+    "base64-js": "^1.5.1",
+    "buffer": "^6.0.3",
+    "ieee754": "^1.2.1",
+    "sha3": "^2.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/einsy-dev/Tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/einsy-dev/Tests/issues"
+  },
+  "homepage": "https://github.com/einsy-dev/Tests#readme"
+}
