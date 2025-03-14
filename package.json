@@ -1,0 +1,24 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "Repo for tests",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/einsy-dev/Tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/einsy-dev/Tests/issues"
+  },
+  "homepage": "https://github.com/einsy-dev/Tests#readme",
+  "dependencies": {
+    "sha3": "^2.1.4"
+  }
+}
